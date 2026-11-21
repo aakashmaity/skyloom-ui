@@ -24,9 +24,11 @@ Import **aakashmaity/skyloom-ui** and use these settings:
 | Framework | Next.js |
 | Root Directory | `apps/docs` |
 | Include source files outside Root Directory | Enabled |
-| Install Command | `cd ../.. && npm ci` |
-| Build Command | `cd ../.. && npm run build` |
+| Install Command | Configured in `apps/docs/vercel.json` |
+| Build Command | Configured in `apps/docs/vercel.json` |
 | Output Directory | Default (`.next`) |
+
+The tracked Vercel configuration installs all workspace dependencies, including build tools. The docs prebuild hook builds the local UI package before Next.js. Remove old dashboard command overrides so the repository configuration is used.
 
 No application environment variables are required. The homepage is `/`. Pushes to the production branch deploy through the connected Vercel project.
 

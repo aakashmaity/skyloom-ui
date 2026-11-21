@@ -7,8 +7,8 @@
     "packages/*"
   ],
   "scripts": {
-    "dev": "npm run build -w skyloom-ui && npm run dev -w @skyloom/docs",
-    "build": "npm run build -w skyloom-ui && npm run build -w @skyloom/docs",
+    "dev": "npm run dev -w @skyloom/docs",
+    "build": "npm run build -w @skyloom/docs",
     "start": "npm run start -w @skyloom/docs --",
     "typecheck": "npm run typecheck -w skyloom-ui && npm run typecheck -w @skyloom/docs",
     "test": "vitest run",
