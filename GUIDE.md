@@ -339,7 +339,7 @@ The stylesheet registers package component sources for Tailwind CSS v4 class sca
 
 ## Development
 
-From the repository's `frontend` directory, install dependencies with `npm install`. Run `npm run check` to type-check the frontend, verify compiled token and responsive styles, and run component interaction tests.
+From this repository root, run `npm install`, then `npm run typecheck` and `npm run build`. The Next.js catalog and integration test suite remain in the [original frontend workspace](https://github.com/aakashmaity/arc-setup-ai-be-fe/tree/main/frontend).
 
 
 ## Advanced components

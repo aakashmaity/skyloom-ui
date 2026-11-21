@@ -63,3 +63,13 @@ Use `ThemeProvider`, `ThemeScript`, and `ThemeControls` for saved preferences an
 - Bento layouts, comparison sliders, and infinite card grids.
 
 See the [guide](https://github.com/aakashmaity/skyloom-ui/blob/main/GUIDE.md) for APIs, motion settings, and integration examples. Uploads, authentication, and preview endpoints remain application-owned.
+
+## Development
+
+```bash
+npm install
+npm run typecheck
+npm run build
+```
+
+This repository contains the reusable package. The [demo catalog and integration tests](https://github.com/aakashmaity/arc-setup-ai-be-fe/tree/main/frontend) live in the original workspace.
