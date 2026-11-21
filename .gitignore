@@ -1,3 +1,14 @@
 node_modules/
 dist/
+.next/
+.checks/
+.vercel/
 *.tgz
+*.tsbuildinfo
+*.log
+.env
+.env.*
+!.env.example
+playwright-report/
+test-results/
+coverage/

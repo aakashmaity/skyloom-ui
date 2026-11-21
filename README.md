@@ -1,75 +1,41 @@
-# skyloom-ui
+# Skyloom UI
 
-Themeable React components, animated interactions, layouts, tables, and charts.
+React components and a live design-system catalog.
 
-[Documentation](https://github.com/aakashmaity/skyloom-ui/blob/main/GUIDE.md) ? [Repository](https://github.com/aakashmaity/skyloom-ui) ? [Issues](https://github.com/aakashmaity/skyloom-ui/issues)
-
-## Install
-
-Requires React 19, React DOM 19, and Tailwind CSS v4.
-
-```bash
-npm install skyloom-ui
-```
-
-Add to your global CSS:
-
-```css
-@import "tailwindcss";
-@import "skyloom-ui/styles.css";
-```
-
-For Next.js, add `transpilePackages: ["skyloom-ui"]` to your Next config.
-
-## Usage
-
-```tsx
-"use client";
-
-import { Button, LoaderOne } from "skyloom-ui";
-
-export function Example() {
-  return (
-    <div className="flex items-center gap-control">
-      <Button variant="hover-border-gradient">Get started</Button>
-      <LoaderOne label="Loading preview" />
-    </div>
-  );
-}
-```
-
-Individual imports are also available:
-
-```tsx
-import { Button } from "skyloom-ui/components/button";
-```
-
-## Themes
-
-Set theme and density on `html` so dialogs and popovers inherit them:
-
-```html
-<html lang="en" data-theme="dark" data-density="comfortable">
-```
-
-Themes: `light`, `dark`, `sepia`. Densities: `comfortable`, `compact`.
-Use `ThemeProvider`, `ThemeScript`, and `ThemeControls` for saved preferences and system theme support.
-
-## Components
-
-- Buttons, fields, forms, uploads, dialogs, and navigation.
-- Loaders, tooltips, link previews, and text effects.
-- Tables, charts, maps, globe, and timeline.
-- Bento layouts, comparison sliders, and infinite card grids.
-
-See the [guide](https://github.com/aakashmaity/skyloom-ui/blob/main/GUIDE.md) for APIs, motion settings, and integration examples. Uploads, authentication, and preview endpoints remain application-owned.
+- `apps/docs`: Next.js website, with the catalog at `/` and analytics at `/analytics`.
+- `packages/sky-ui`: the published `skyloom-ui` npm library.
+- `tests`: shared component and browser tests.
 
 ## Development
 
 ```bash
 npm install
-npm run typecheck
-npm run build
+npm run dev
 ```
 
-This repository contains the reusable package. The [demo catalog and integration tests](https://github.com/aakashmaity/arc-setup-ai-be-fe/tree/main/frontend) live in the original workspace.
+`npm run build` builds the package before the website. Run `npm run check` for TypeScript, token, and unit checks. After building, run `npm run test:browser` (requires Microsoft Edge).
+
+## Deploy to Vercel
+
+Import **aakashmaity/skyloom-ui** and use these settings:
+
+| Setting | Value |
+| --- | --- |
+| Framework | Next.js |
+| Root Directory | `apps/docs` |
+| Include source files outside Root Directory | Enabled |
+| Install Command | `cd ../.. && npm ci` |
+| Build Command | `cd ../.. && npm run build` |
+| Output Directory | Default (`.next`) |
+
+No application environment variables are required. The homepage is `/`. Pushes to the production branch deploy through the connected Vercel project.
+
+## Publish the package
+
+From the repository root:
+
+```bash
+npm publish --workspace skyloom-ui --access public
+```
+
+Only the library is published. See the [package README](packages/sky-ui/README.md) and [guide](packages/sky-ui/GUIDE.md) for usage.

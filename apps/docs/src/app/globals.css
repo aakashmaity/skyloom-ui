@@ -1,0 +1,15 @@
+@import "tailwindcss";
+@import "skyloom-ui/styles.css";
+@source "../../../../packages/sky-ui/dist";
+
+@layer base {
+  html { scroll-padding-top: var(--sky-header-height); }
+  body { min-height: 100dvh; }
+  button, a { -webkit-tap-highlight-color: transparent; }
+}
+@layer components {
+  .ds-heading { font-size: var(--sky-text-display); line-height: var(--sky-leading-title); letter-spacing: var(--sky-tracking-display); }
+  .ds-sidebar { top: var(--sky-header-height); max-height: calc(100dvh - var(--sky-header-height)); }
+  .ds-section { scroll-margin-top: var(--sky-space-panel); }
+  .ds-swatch { background: var(--swatch); }
+}
