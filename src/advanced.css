@@ -1,0 +1,89 @@
+@property --sky-border-angle { syntax: "<angle>"; inherits: false; initial-value: 0deg; }
+@layer components {
+  .sky-vanish { animation: sky-vanish var(--sky-duration-vanish) var(--sky-ease) both; }
+  @keyframes sky-vanish { to { opacity: 0; filter: blur(var(--sky-space-sm)); translate: var(--sky-space-panel) calc(-1 * var(--sky-space-panel)); } }
+  .sky-gooey-decoration { z-index: -1; background: var(--secondary); border-radius: var(--sky-radius-capsule); }
+  .sky-gooey { isolation: isolate; }
+  .sky-compare { touch-action: pan-y; }
+  .sky-compare[data-orientation="vertical"] { touch-action: pan-x; }
+  .sky-compare-divider { background: var(--primary); }
+  .sky-compare[data-orientation="horizontal"] .sky-compare-divider { width: var(--sky-stroke); }
+  .sky-compare[data-orientation="vertical"] .sky-compare-divider { height: var(--sky-stroke); }
+  .sky-compare-handle { left: 50%; top: 50%; translate: -50% -50%; }
+  .sky-compare[data-variant="modern"][data-dragging="true"] .sky-compare-divider { box-shadow: 0 0 var(--sky-space-inline) var(--info); border-radius: 50%;  }
+  .sky-compare-particle { position: absolute; top: calc(var(--sky-index) * 16%); width: var(--sky-space-xs); height: var(--sky-space-xs); border-radius: 50%; background: var(--primary); animation: sky-particle var(--sky-duration-particle) ease-out infinite; animation-delay: calc(var(--sky-index) * var(--sky-duration-particle-delay)); }
+  @keyframes sky-particle { to { translate: var(--sky-space-panel) var(--sky-space-panel); opacity: 0; } }
+  .sky-infinite-grid { height: var(--sky-gallery-height); }
+  .sky-gallery-tile { border-width: var(--sky-space-xs); border-color: var(--muted); cursor: grab; }
+  .sky-cover-beams { background: repeating-linear-gradient(0deg, transparent 0, transparent var(--sky-space-sm), var(--primary) var(--sky-space-sm), transparent calc(var(--sky-space-sm) + var(--sky-stroke))); opacity: .2; }
+  .sky-cover[data-running="true"]:is(:hover,:focus-within) .sky-cover-beams { animation: sky-cover-flow var(--sky-duration-cover) linear infinite; }
+  @keyframes sky-cover-flow { to { translate: 25% 0; } }
+  .sky-flap { display: inline-block; min-width: 1ch; border: var(--sky-stroke) solid var(--border); border-radius: var(--sky-radius-control); padding: var(--sky-space-xs); background: var(--secondary); font-family: var(--sky-font-mono); transition: transform var(--sky-duration-enter); }
+  .sky-word-reveal { transition: opacity var(--sky-duration-enter); }
+  .sky-colourful[data-running="true"] > span { display: inline-block; animation: sky-color-float var(--sky-duration-orbit) ease-in-out infinite; animation-delay: calc(var(--sky-index) * var(--sky-duration-fast)); }
+  @keyframes sky-color-float { 50% { translate: 0 calc(-1 * var(--sky-space-xs)); } }
+  .sky-squiggly[data-running="true"] { animation: sky-squiggle var(--sky-duration-loading) steps(4) infinite; }
+  @keyframes sky-squiggle { 50% { transform: skewX(2deg); } }
+  .sky-text-hover { background: radial-gradient(circle at var(--sky-text-position, 50%) 50%, var(--primary), var(--info), var(--foreground)); color: transparent; background-clip: text; -webkit-text-stroke: var(--sky-stroke) var(--primary); }
+  .sky-hero-highlight { background-color: var(--card); background-image: radial-gradient(var(--border) var(--sky-stroke), transparent var(--sky-stroke)); background-size: var(--sky-space-lg) var(--sky-space-lg); }
+  .sky-code .token.comment, .sky-code .token.prolog { color: var(--muted-foreground); }
+  .sky-code .token.keyword, .sky-code .token.tag { color: var(--primary); }
+  .sky-code .token.string, .sky-code .token.attr-value { color: var(--success); }
+  .sky-code .token.number, .sky-code .token.boolean { color: var(--info); }
+  .sky-code .token.function { color: var(--warning); }
+  .sky-map-arc { stroke-dasharray: 1; animation: sky-path-draw var(--sky-duration-orbit) ease-in-out infinite alternate; }
+  .sky-navbar { width: 100%; top: var(--sky-nav-offset); z-index: var(--sky-layer-pinned); }
+  .sky-navbar[data-position="sticky"] { position: sticky; }
+  .sky-navbar[data-position="fixed"] { position: fixed; inset-inline: var(--sky-nav-offset); width: auto; }
+  .sky-navbar[data-compact="true"] { max-width: var(--sky-dialog-lg); }
+  .sky-sidebar-panel { width: var(--sky-header-height); }
+  .sky-sidebar-panel[data-expanded="true"] { width: var(--sky-sidebar); }
+  .sky-notch[data-align="center"] { margin-inline: auto; }
+  .sky-notch[data-align="end"] { margin-inline-start: auto; }
+  .sky-notch[data-fixed="true"] { position: fixed; z-index: var(--sky-layer-popover); max-width: calc(100% - var(--sky-space-page) * 2); }
+  .sky-notch[data-fixed="true"][data-position="top"] { top: var(--sky-nav-offset); }
+  .sky-notch[data-fixed="true"][data-position="bottom"] { bottom: var(--sky-nav-offset); }
+  .sky-notch[data-fixed="true"][data-align="center"] { left: 50%; translate: -50% 0; }
+  .sky-notch[data-fixed="true"][data-align="start"] { inset-inline-start: var(--sky-nav-offset); }
+  .sky-notch[data-fixed="true"][data-align="end"] { inset-inline-end: var(--sky-nav-offset); }
+  .sky-banner { position: sticky; top: 0; z-index: var(--sky-layer-pinned); }
+  .sky-tab-stack { box-shadow: 0 var(--sky-space-xs) 0 var(--border), 0 var(--sky-space-sm) 0 var(--muted); }
+  .sky-gradient-border { position: relative; isolation: isolate; border: var(--sky-stroke) solid transparent; background: linear-gradient(var(--card), var(--card)) padding-box, conic-gradient(from var(--sky-border-angle), var(--border), var(--primary), var(--info), var(--border)) border-box; }
+  .sky-gradient-border::before { content: ""; pointer-events: none; position: absolute; inset: 0; border-radius: inherit; box-shadow: 0 0 var(--sky-glow-radius) color-mix(in oklch, var(--primary) 25%, transparent); opacity: 0; transition: opacity var(--sky-duration-enter) var(--sky-ease); }
+  .sky-gradient-border:not(:disabled):not([aria-disabled="true"]):is(:hover,:focus-visible)::before { opacity: 1; }
+  .sky-gradient-border:not(:disabled):not([aria-disabled="true"]) { animation: sky-border-turn var(--sky-duration-orbit) linear infinite; }
+  @keyframes sky-border-turn { to { --sky-border-angle: 360deg; } }
+  .sky-loader { --sky-loader-dot-size: var(--sky-icon); }
+  .sky-loader[data-size="sm"] { --sky-loader-dot-size: var(--sky-space-sm); }
+  .sky-loader[data-size="lg"] { --sky-loader-dot-size: var(--sky-space-xl); }
+  .sky-loader-dot { display: block; width: var(--sky-loader-dot-size); height: var(--sky-loader-dot-size); border-radius: var(--sky-radius-pill); background: linear-gradient(var(--primary), var(--info)); }
+  .sky-loader-symbol { width: calc(var(--sky-loader-dot-size) * 2); height: calc(var(--sky-loader-dot-size) * 2); }
+  .sky-loader[data-running="true"][data-variant="dots"] .sky-loader-dot { animation: sky-dot-bounce var(--sky-duration-loading) var(--sky-ease) infinite; animation-delay: calc(var(--sky-index) * var(--sky-duration-fast)); }
+  .sky-loader[data-running="true"][data-variant="sliding-dots"] .sky-loader-dot { animation: sky-dot-slide var(--sky-duration-loading) var(--sky-ease) infinite; animation-delay: calc(var(--sky-index) * var(--sky-duration-fast)); }
+  .sky-loader[data-running="true"] .sky-loader-path { stroke-dasharray: 1; animation: sky-path-draw var(--sky-duration-loading) ease-in-out infinite alternate; }
+  .sky-loader[data-running="true"] .sky-loader-glitch { animation: sky-glitch var(--sky-duration-orbit) steps(1) infinite; }
+  .sky-loader[data-running="true"] .sky-loader-shimmer { animation: sky-pulse var(--sky-duration-loading) ease-in-out infinite alternate; }
+  @keyframes sky-dot-bounce { 50% { translate: 0 var(--sky-space-sm); opacity: var(--sky-opacity-disabled); } }
+  @keyframes sky-dot-slide { 50% { translate: var(--sky-space-sm) 0; } }
+  @keyframes sky-path-draw { from { stroke-dashoffset: 1; } to { stroke-dashoffset: 0; fill: var(--secondary); } }
+  @keyframes sky-glitch { 90% { transform: skewX(0); text-shadow: none; } 92% { transform: skewX(-8deg); text-shadow: var(--sky-stroke) 0 var(--info); } 94% { transform: skewX(5deg); text-shadow: calc(-1 * var(--sky-stroke)) 0 var(--primary); } 96% { transform: none; text-shadow: none; } }
+  [data-sky-paused="true"] *, [data-sky-paused="true"] *::before, [data-sky-paused="true"] *::after { animation-play-state: paused !important; }
+  .sky-advanced-surface { border: var(--sky-stroke) solid var(--border); border-radius: var(--sky-radius-surface); background: var(--card); color: var(--card-foreground); }
+  .sky-advanced-surface[data-variant="classic"] { border-radius: var(--sky-radius-control); }
+  .sky-advanced-surface[data-variant="modern"] { border-radius: var(--sky-radius-lg); box-shadow: var(--sky-shadow-raised); }
+}
+
+@layer components {
+  .sky-compare[data-variant="modern"][data-dragging="true"] .sky-compare-divider::before {
+    content: ""; position: absolute; inset: 0; border-radius: 50%;
+    border: var(--sky-stroke) solid var(--primary);
+    box-shadow: var(--sky-stroke) 0 var(--info), calc(-1 * var(--sky-stroke)) 0 var(--warning);
+    backdrop-filter: blur(var(--sky-space-xs));
+  }
+  .sky-compare[data-orientation="horizontal"][data-dragging="true"] .sky-compare-divider::before {
+    width: var(--sky-compare-bend); translate: -50% 0;
+  }
+  .sky-compare[data-orientation="vertical"][data-dragging="true"] .sky-compare-divider::before {
+    height: var(--sky-compare-bend); translate: 0 -50%;
+  }
+}

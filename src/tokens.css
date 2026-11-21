@@ -1,0 +1,273 @@
+/* Foundation values are centralized here; components consume semantic roles. */
+:root {
+  --sky-paper: oklch(0.985 0.003 100);
+  --sky-white: oklch(1 0 0);
+  --sky-ink: oklch(0.16 0.006 100);
+  --sky-neutral-soft: oklch(0.955 0.006 100);
+  --sky-neutral-border: oklch(0.9 0.008 100);
+  --sky-neutral-mid: oklch(0.65 0.012 100);
+  --sky-neutral-strong: oklch(0.45 0.012 100);
+  --sky-neutral-dark: oklch(0.27 0.008 100);
+  --sky-neutral-surface: oklch(0.21 0.006 100);
+  --sky-brand-light: oklch(0.43 0.07 135);
+  --sky-brand-dark: oklch(0.8 0.09 135);
+  --sky-danger-light: oklch(0.48 0.18 25);
+  --sky-danger-dark: oklch(0.78 0.11 25);
+  --sky-success-light: oklch(0.42 0.09 155);
+  --sky-success-dark: oklch(0.8 0.1 155);
+  --sky-warning-light: oklch(0.44 0.09 65);
+  --sky-warning-dark: oklch(0.84 0.1 80);
+  --sky-info-light: oklch(0.44 0.12 250);
+  --sky-info-dark: oklch(0.8 0.09 250);
+  --sky-ocean-light: oklch(0.43 0.12 250);
+  --sky-ocean-dark: oklch(0.8 0.09 250);
+  --sky-violet-light: oklch(0.43 0.15 300);
+  --sky-violet-dark: oklch(0.8 0.1 300);
+  --sky-sepia-paper: oklch(.95 .025 80);
+  --sky-sepia-card: oklch(.98 .018 80);
+  --sky-sepia-ink: oklch(.25 .025 60);
+  --sky-sepia-muted: oklch(.9 .025 80);
+  --sky-sepia-strong: oklch(.43 .025 60);
+  --sky-sepia-border: oklch(.76 .035 80);
+  --sky-sepia-input: oklch(.59 .035 80);
+  --sky-space-xs: .25rem;
+  --sky-space-sm: .5rem;
+  --sky-space-md: .75rem;
+  --sky-space-lg: 1rem;
+  --sky-space-xl: 1.5rem;
+  --sky-space-2xl: 2rem;
+  --sky-control-sm: 2.25rem;
+  --sky-control-md: 2.75rem;
+  --sky-control-lg: 3rem;
+  --sky-touch-target: 2.75rem;
+  --sky-icon: 1.125rem;
+  --sky-choice: 1.125rem;
+  --sky-textarea: 7rem;
+  --sky-dialog: 32rem;
+  --sky-dialog-sm: 24rem;
+  --sky-dialog-lg: 48rem;
+  --sky-sheet: 28rem;
+  --sky-tooltip: 20rem;
+  --sky-container: 80rem;
+  --sky-sidebar: 14rem;
+  --sky-header-height: 5rem;
+  --sky-preview: 12rem;
+  --sky-preview-wide: 20rem;
+  --sky-track: .375rem;
+  --sky-chart-height: 16rem;
+  --sky-chart-area-opacity: .2;
+  --sky-heat-intensity: .22;
+  --sky-text-display: clamp(2rem, 4vw, 3rem);
+  --sky-tracking-display: -.035em;
+  --sky-switch-width: 2.5rem;
+  --sky-switch-height: 1.5rem;
+  --sky-switch-thumb: 1.125rem;
+  --sky-switch-inset: .1875rem;
+  --sky-radius-sm: .375rem;
+  --sky-radius-md: .75rem;
+  --sky-radius-lg: 1rem;
+  --sky-radius-pill: 100%;
+  --sky-radius-capsule: 999rem;
+  --sky-family-system: ui-sans-serif, system-ui, sans-serif;
+  --sky-family-serif: ui-serif, Georgia, serif;
+  --sky-family-mono: ui-monospace, SFMono-Regular, Consolas, monospace;
+  --sky-font-family: var(--sky-family-system);
+  --sky-font-body: var(--sky-font-family);
+  --sky-font-heading: var(--sky-font-body);
+  --sky-font-mono: var(--sky-family-mono);
+  --sky-table-center-min: var(--sky-preview);
+  --sky-layer-pinned: 1;
+  --sky-layer-drag: 2;
+  --sky-text-caption: .75rem;
+  --sky-text-label: .875rem;
+  --sky-text-body: 1rem;
+  --sky-text-title: 1.25rem;
+  --sky-leading-body: 1.5;
+  --sky-leading-title: 1.3;
+  --sky-weight-medium: 500;
+  --sky-weight-semibold: 600;
+  --sky-stroke: .0625rem;
+  --sky-focus-width: .125rem;
+  --sky-focus-offset: .125rem;
+  --sky-opacity-disabled: .5;
+  --sky-brightness-hover: .92;
+  --sky-duration-fast: 140ms;
+  --sky-duration-enter: 220ms;
+  --sky-spring-stiffness: 180;
+  --sky-spring-damping: 18;
+  --sky-motion-distance: var(--sky-space-sm);
+  --sky-motion-scale: .98;
+  --sky-spotlight-radius: var(--sky-preview);
+  --sky-spotlight-strength: 12%;
+  --sky-duration-loading: 1200ms;
+  --sky-duration-orbit: 4000ms;
+  --sky-duration-vanish: 600ms;
+  --sky-duration-particle: 700ms;
+  --sky-duration-particle-delay: 80ms;
+  --sky-duration-cover: 500ms;
+  --sky-glow-radius: 1rem;
+  --sky-loader-cell: .25rem;
+  --sky-loader-gap: .125rem;
+  --sky-loader-band: 3rem;
+  --sky-gallery-tile: 12rem;
+  --sky-gallery-height: 28rem;
+  --sky-nav-offset: var(--sky-space-lg);
+  --sky-compare-bend: 1.5rem;
+  --sky-ease: cubic-bezier(.2, 0, 0, 1);
+  --sky-layer-overlay: 40;
+  --sky-layer-modal: 50;
+  --sky-layer-popover: 60;
+  --sky-layer-tooltip: 70;
+  --sky-shadow-raised: 0 .125rem .5rem oklch(0 0 0 / .1);
+  --sky-shadow-floating: 0 1rem 3rem oklch(0 0 0 / .2);
+  --sky-space-inline: var(--sky-space-md);
+  --sky-space-control: var(--sky-space-sm);
+  --sky-space-stack: var(--sky-space-md);
+  --sky-space-panel: var(--sky-space-xl);
+  --sky-space-page: var(--sky-space-lg);
+  --sky-space-page-wide: var(--sky-space-2xl);
+  --sky-control-height: var(--sky-control-md);
+  --sky-radius-control: var(--sky-radius-sm);
+  --sky-radius-surface: var(--sky-radius-md);
+  --sky-radius-modal: var(--sky-radius-lg);
+}
+
+:root, :root[data-theme="light"] {
+  --background: var(--sky-paper);
+  --foreground: var(--sky-ink);
+  --card: var(--sky-white);
+  --card-foreground: var(--sky-ink);
+  --popover: var(--sky-white);
+  --popover-foreground: var(--sky-ink);
+  --primary: var(--sky-brand-light);
+  --primary-foreground: var(--sky-white);
+  --secondary: var(--sky-neutral-soft);
+  --secondary-foreground: var(--sky-ink);
+  --muted: var(--sky-neutral-soft);
+  --muted-foreground: var(--sky-neutral-strong);
+  --accent: var(--sky-neutral-soft);
+  --accent-foreground: var(--sky-ink);
+  --destructive: var(--sky-danger-light);
+  --destructive-foreground: var(--sky-white);
+  --success: var(--sky-success-light);
+  --success-foreground: var(--sky-white);
+  --warning: var(--sky-warning-light);
+  --warning-foreground: var(--sky-white);
+  --info: var(--sky-info-light);
+  --info-foreground: var(--sky-white);
+  --border: var(--sky-neutral-border);
+  --input: var(--sky-neutral-mid);
+  --ring: var(--sky-brand-light);
+  --overlay: oklch(0 0 0 / .55);
+  --chart-1: var(--sky-brand-light);
+  --chart-2: oklch(.5 .13 250);
+  --chart-3: oklch(.5 .14 305);
+  --chart-4: oklch(.55 .12 65);
+  --chart-5: var(--sky-danger-light);
+  color-scheme: light;
+}
+:root.dark:not([data-theme]), :root[data-theme="dark"] {
+  --background: var(--sky-ink);
+  --foreground: var(--sky-paper);
+  --card: var(--sky-neutral-surface);
+  --card-foreground: var(--sky-paper);
+  --popover: var(--sky-neutral-surface);
+  --popover-foreground: var(--sky-paper);
+  --primary: var(--sky-brand-dark);
+  --primary-foreground: var(--sky-ink);
+  --secondary: var(--sky-neutral-dark);
+  --secondary-foreground: var(--sky-paper);
+  --muted: var(--sky-neutral-dark);
+  --muted-foreground: var(--sky-neutral-border);
+  --accent: var(--sky-neutral-dark);
+  --accent-foreground: var(--sky-paper);
+  --destructive: var(--sky-danger-dark);
+  --destructive-foreground: var(--sky-ink);
+  --success: var(--sky-success-dark);
+  --success-foreground: var(--sky-ink);
+  --warning: var(--sky-warning-dark);
+  --warning-foreground: var(--sky-ink);
+  --info: var(--sky-info-dark);
+  --info-foreground: var(--sky-ink);
+  --border: var(--sky-neutral-strong);
+  --input: var(--sky-neutral-mid);
+  --ring: var(--sky-brand-dark);
+  color-scheme: dark;
+  --chart-1: var(--sky-brand-dark);
+  --chart-2: oklch(.76 .1 250);
+  --chart-3: oklch(.76 .11 305);
+  --chart-4: oklch(.8 .1 65);
+  --chart-5: var(--sky-danger-dark);
+}
+:root[data-theme="sepia"] {
+  --background: var(--sky-sepia-paper);
+  --foreground: var(--sky-sepia-ink);
+  --card: var(--sky-sepia-card);
+  --card-foreground: var(--sky-sepia-ink);
+  --popover: var(--sky-sepia-card);
+  --popover-foreground: var(--sky-sepia-ink);
+  --primary: var(--sky-brand-light);
+  --primary-foreground: var(--sky-white);
+  --secondary: var(--sky-sepia-muted);
+  --secondary-foreground: var(--sky-sepia-ink);
+  --muted: var(--sky-sepia-muted);
+  --muted-foreground: var(--sky-sepia-strong);
+  --accent: var(--sky-sepia-muted);
+  --accent-foreground: var(--sky-sepia-ink);
+  --destructive: var(--sky-danger-light);
+  --destructive-foreground: var(--sky-white);
+  --success: var(--sky-success-light);
+  --success-foreground: var(--sky-white);
+  --warning: var(--sky-warning-light);
+  --warning-foreground: var(--sky-white);
+  --info: var(--sky-info-light);
+  --info-foreground: var(--sky-white);
+  --border: var(--sky-sepia-border);
+  --input: var(--sky-sepia-input);
+  --ring: var(--sky-brand-light);
+  --overlay: oklch(0 0 0 / .55);
+  --chart-1: var(--sky-brand-light);
+  --chart-2: var(--sky-info-light);
+  --chart-3: var(--sky-violet-light);
+  --chart-4: var(--sky-warning-light);
+  --chart-5: var(--sky-danger-light);
+  color-scheme: light;
+}
+:root[data-font="inter"], :root[data-font="editorial"] {
+  --sky-font-family: var(--sky-loaded-inter, var(--sky-family-system));
+}
+:root[data-font="editorial"] {
+  --sky-font-heading: var(--sky-loaded-serif, var(--sky-family-serif));
+}
+:root[data-density="compact"] {
+  --sky-control-height: var(--sky-control-sm);
+  --sky-space-inline: var(--sky-space-sm);
+  --sky-space-control: var(--sky-space-xs);
+  --sky-space-stack: var(--sky-space-sm);
+  --sky-space-panel: var(--sky-space-lg);
+}
+
+/* Palette, appearance, mode, and density are independent document settings. */
+:root[data-palette="ocean"] {
+  --sky-brand-light: var(--sky-ocean-light);
+  --sky-brand-dark: var(--sky-ocean-dark);
+}
+:root[data-palette="violet"] {
+  --sky-brand-light: var(--sky-violet-light);
+  --sky-brand-dark: var(--sky-violet-dark);
+}
+:root[data-palette="neutral"] {
+  --sky-brand-light: var(--sky-ink);
+  --sky-brand-dark: var(--sky-paper);
+}
+:root[data-appearance="classic"] {
+  --sky-radius-control: var(--sky-radius-sm);
+  --sky-radius-surface: var(--sky-radius-sm);
+  --sky-radius-modal: var(--sky-radius-sm);
+}
+:root[data-appearance="modern"] {
+  --sky-radius-control: var(--sky-radius-md);
+  --sky-radius-surface: var(--sky-radius-lg);
+  --sky-radius-modal: var(--sky-radius-lg);
+  --sky-shadow-raised: none;
+}
